@@ -24,6 +24,7 @@ namespace _3280GroupProject
         bool editing = false;
         bool newInvoice = false;
         int totalCost = 0;
+        int currCost = 0;
         clsItem currItem = new clsItem();
 
         //Item.clsItemsLogic clsItems;
@@ -83,15 +84,20 @@ namespace _3280GroupProject
             if (editing && cmbbxItemDropdown.SelectedItem != null)
             {
                 dgrdItemsList.Items.Add(cmbbxItemDropdown.SelectedItem);
-                currItem = (clsItem)cmbbxItemDropdown.SelectedItem;
-                totalCost += Int32.TryParse(currItem.cost, out int result);
-                    currItem.cost;
+                totalCost += currCost;
+                lblTotalCost.Content = totalCost.ToString();
             }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             //Implement DELETE functionality: Removes item from dgrdItemsList
+            if (editing && cmbbxItemDropdown.SelectedItem != null)
+            {
+                dgrdItemsList.Items.Remove(cmbbxItemDropdown.SelectedItem);
+                totalCost -= currCost;
+                lblTotalCost.Content = totalCost.ToString();
+            }
         }
 
         private void mbtnSearch_Click(object sender, RoutedEventArgs e)
@@ -132,6 +138,9 @@ namespace _3280GroupProject
             //set selection to object
             ////Set cost based on cost component of object
             //
+            currItem = (clsItem)cmbbxItemDropdown.SelectedItem;
+            Int32.TryParse(currItem.cost, out currCost);
+            lblItemCost.Content = currCost.ToString();
         }
 
         private void getCurrentInvoiceItems()//Needed?
@@ -139,6 +148,7 @@ namespace _3280GroupProject
             //clsItems = new Items
             //cmbbxItemDropdown.ItemsSource = Items.ItemsList
             cmbbxItemDropdown.ItemsSource = clsItemsLogic.currItems;
+
         }
 
         private void btnEditInvoice_Click(object sender, RoutedEventArgs e)
