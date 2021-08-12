@@ -1,0 +1,18 @@
+﻿<Window x:Name="wndItemsWindow" x:Class="_3280GroupProject.wndItems"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3280GroupProject"
+        mc:Ignorable="d"
+        Title="Edit Items" Height="484" Width="630" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid HorizontalAlignment="Left" Height="383" Margin="30,36,0,0" VerticalAlignment="Top" Width="339"/>
+        <Label x:Name="lblItemsLabel" Content="Items" HorizontalAlignment="Left" Margin="184,11,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="527,408,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
+        <Button x:Name="btnAddItem" Content="Add Item" HorizontalAlignment="Left" Margin="451,61,0,0" VerticalAlignment="Top" Width="94" Height="33" Click="BtnAddItem_Click"/>
+        <Button x:Name="btnEditItem" Content="Edit Item" HorizontalAlignment="Left" Margin="451,138,0,0" VerticalAlignment="Top" Width="94" Height="33" Click="BtnEditItem_Click"/>
+        <Button x:Name="btnDelItem" Content="Delete Item" HorizontalAlignment="Left" Margin="451,216,0,0" VerticalAlignment="Top" Width="94" Height="33" Click="BtnDelItem_Click"/>
+
+    </Grid>
+</Window>
